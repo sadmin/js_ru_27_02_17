@@ -1,6 +1,7 @@
 //### HT1.1 Создать CommentList для каждой открытой статьи
 import React, {Component} from 'react'
 
+//Это можно сделать Functional Component, по возможности используй их
 class Comment extends Component {
 
     render() {
