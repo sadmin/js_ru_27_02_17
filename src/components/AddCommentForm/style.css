@@ -1,0 +1,8 @@
+.AddCommentForm .row {
+ margin: 5px
+}
+.AddCommentForm label {
+ width: 100px;
+ font-weight: bold;
+ display: block;
+}

@@ -1,18 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Comment from './Comment'
+import AddCommentForm from './AddCommentForm/index'
 import toggleOpen from '../decorators/toggleOpen'
 
 class CommentList extends Component {
+
+    static propTypes = {
+        comments: PropTypes.array
+    }
+
     static defaultProps = {
         comments: []
-    }
-
-    componentWillMount() {
-        console.log('---', 'mounting comment list')
-    }
-
-    componentDidMount() {
-        console.log('---', 'comment list mounted')
     }
 
     componentDidUpdate() {
@@ -21,7 +19,7 @@ class CommentList extends Component {
 
     render() {
         const {isOpen, toggleOpen} = this.props
-        console.log('---', this.size)
+//        console.log('---', this.size)
         return (
             <div ref={this.getContainerRef}>
                 <a href="#" onClick={toggleOpen}>{isOpen ? 'hide' : 'show'} comments</a>
@@ -46,12 +44,14 @@ class CommentList extends Component {
                 <h3>
                     No comments yet
                 </h3>
+                <AddCommentForm />
             </div>
         }
 
         const commentItems = comments.map(comment => <li key={comment.id}><Comment comment={comment} /></li>)
         return (
             <div>
+                <AddCommentForm />
                 <ul>
                     {commentItems}
                 </ul>

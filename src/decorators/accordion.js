@@ -1,20 +1,21 @@
-//HOC === Decorator
 import React from 'react'
 
-export default (CustomComponent) => class MyDecoratorComponent extends React.Component {
+export default (CustomComponent) => class AccordionDecorator extends React.Component {
     state = {
         openItemId: null
     }
-    
+
     toggleOpenItem = openItemId => ev => {
-        ev.preventDefault()
-        console.log("***")
+        if (ev && ev.preventDefault) ev.preventDefault()
+
         this.setState({
-            openItemId
+            openItemId: this.isItemOpened(openItemId) ? null : openItemId
         })
     }
 
+    isItemOpened = id => id === this.state.openItemId
+
     render() {
-        return <CustomComponent {...this.props} {...this.state} toggleOpenItem={this.toggleOpenItem} openItemId={this.state.openItemId} />
+        return <CustomComponent {...this.props} toggleOpenItem={this.toggleOpenItem} isItemOpened={this.isItemOpened}/>
     }
 }
