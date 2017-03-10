@@ -18,7 +18,6 @@ handleCommentBodyChange = ev => {
 }
 handleSubmitClick = ev => {
     if(ev && ev.preventDefault) ev.preventDefault()
-    console.log('handleSubmitClick');
 }
 
 
