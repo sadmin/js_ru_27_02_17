@@ -7,13 +7,14 @@ export default (CustomComponent) => class MyDecoratorComponent extends React.Com
     }
     
     toggleOpenItem = openItemId => ev => {
+        ev.preventDefault()
+        console.log("***")
         this.setState({
             openItemId
         })
-        console.log('---','test')
     }
 
     render() {
-        return <CustomComponent {...this.props} {...this.state} toggleOpenItem={this.toggleOpenItem} />
+        return <CustomComponent {...this.props} {...this.state} toggleOpenItem={this.toggleOpenItem} openItemId={this.state.openItemId} />
     }
 }
