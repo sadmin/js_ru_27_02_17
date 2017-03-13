@@ -10,6 +10,7 @@ class AddCommentFrom extends React.Component {
     commentBody: ''  
   };
 
+//ок, только валидацию забыл
 handleUserNameChange = ev => {
     this.setState({userName : ev.target.value});
 }
